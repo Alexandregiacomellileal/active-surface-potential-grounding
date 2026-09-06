@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Regenerate the six principal paper figures from archived result tables.
+"""Regenerate paper figures from the public GitHub core tables.
 
-This script is intentionally independent of the original MATLAB figure script
-so that paper-level results can be checked without MATLAB/COMSOL.
+The GitHub core reproduces summary/paired/noise figures without MATLAB or
+COMSOL. Figures requiring the larger casewise/full-field archive are generated
+when those optional files are present (the complete bundle is intended for the
+Zenodo release).
 """
 from pathlib import Path
 import numpy as np
@@ -13,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT/"figures_reproduced"
 OUT.mkdir(exist_ok=True)
 
+# Fig. 1: clean held-out joint success versus budget.
 s = pd.read_csv(ROOT/"data/heldout_final/FINAL_HELDOUT84_summary_by_budget.csv")
 fig, ax = plt.subplots(figsize=(7.2,4.6))
 for label, patt in [("Active","Active"),("Space","Space")]:
@@ -28,20 +31,27 @@ fig.tight_layout()
 fig.savefig(OUT/"Fig1_joint_success_vs_budget.png", dpi=300)
 plt.close(fig)
 
-A=pd.read_csv(ROOT/"data/heldout_final/FINAL_HELDOUT84_ACTIVE_N15_casewise.csv")
-S=pd.read_csv(ROOT/"data/heldout_final/FINAL_HELDOUT84_SPACE_N15_casewise.csv")
-metrics=[("endpoint_error_m","Endpoint error (m)"),
-         ("d_abs_error_m","Depth error (m)"),
-         ("phi_abs_error_deg","Orientation error (deg)")]
-fig, axes=plt.subplots(1,3,figsize=(11,3.6))
-for ax,(col,ylab) in zip(axes,metrics):
-    ax.boxplot([A[col],S[col]], tick_labels=["Active","Space"], showfliers=True)
-    ax.set_ylabel(ylab)
-    ax.grid(True, axis="y", alpha=0.3)
-fig.tight_layout()
-fig.savefig(OUT/"Fig2_N15_geometry_errors.png", dpi=300)
-plt.close(fig)
+# Fig. 2: optional casewise N=15 geometry-error distributions.
+afile=ROOT/"data/heldout_final/FINAL_HELDOUT84_ACTIVE_N15_casewise.csv"
+sfile=ROOT/"data/heldout_final/FINAL_HELDOUT84_SPACE_N15_casewise.csv"
+if afile.exists() and sfile.exists():
+    A=pd.read_csv(afile)
+    S=pd.read_csv(sfile)
+    metrics=[("endpoint_error_m","Endpoint error (m)"),
+             ("d_abs_error_m","Depth error (m)"),
+             ("phi_abs_error_deg","Orientation error (deg)")]
+    fig, axes=plt.subplots(1,3,figsize=(11,3.6))
+    for ax,(col,ylab) in zip(axes,metrics):
+        ax.boxplot([A[col],S[col]], tick_labels=["Active","Space"], showfliers=True)
+        ax.set_ylabel(ylab)
+        ax.grid(True, axis="y", alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(OUT/"Fig2_N15_geometry_errors.png", dpi=300)
+    plt.close(fig)
+else:
+    print("Casewise N=15 tables not found; skipping Fig. 2. They are included in the complete Zenodo-ready archive.")
 
+# Fig. 3: paired clean N=15 depth-error difference.
 P=pd.read_csv(ROOT/"data/heldout_final/FINAL_HELDOUT84_paired_N15.csv").sort_values("delta_depth_active_minus_space_m")
 fig, ax=plt.subplots(figsize=(7.2,4.4))
 ax.plot(np.arange(1,len(P)+1), P.delta_depth_active_minus_space_m, marker=".", linewidth=1)
@@ -53,6 +63,7 @@ fig.tight_layout()
 fig.savefig(OUT/"Fig3_paired_depth_difference.png", dpi=300)
 plt.close(fig)
 
+# Fig. 4: optional full 956-point illustrative field for case 12.
 fcase = ROOT/"data/example_case12/case_012_surface_potential_FROZEN_v12.csv"
 if fcase.exists():
     F=pd.read_csv(fcase)
@@ -70,8 +81,9 @@ if fcase.exists():
     fig.savefig(OUT/"Fig4_spatial_active_vs_space_case_012.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
 else:
-    print("Case-12 full field not found; skipping Fig. 4. See Zenodo archive for the complete package.")
+    print("Case-12 full field not found; skipping Fig. 4. It is included in the complete Zenodo-ready archive.")
 
+# Fig. 5: post-held-out noise joint success.
 N=pd.read_csv(ROOT/"data/noise_stress/NOISE_STRESS_summary_by_level.csv")
 fig, ax=plt.subplots(figsize=(7.2,4.6))
 for method in ["Active","Space"]:
@@ -89,6 +101,7 @@ fig.tight_layout()
 fig.savefig(OUT/"Fig5_noise_joint_success.png", dpi=300)
 plt.close(fig)
 
+# Fig. 6: post-held-out noise depth error.
 fig, ax=plt.subplots(figsize=(7.2,4.6))
 for method in ["Active","Space"]:
     x=N[N.method==method].sort_values("noise_pct_RMS")
@@ -104,4 +117,4 @@ fig.tight_layout()
 fig.savefig(OUT/"Fig6_noise_depth_error.png", dpi=300)
 plt.close(fig)
 
-print(f"Reproduced figures written to {OUT}")
+print(f"Reproduced available figures written to {OUT}")
