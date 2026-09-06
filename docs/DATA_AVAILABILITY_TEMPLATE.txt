@@ -1,0 +1,11 @@
+Proposed Data Availability statement (replace DOI placeholder after Zenodo publication)
+
+The source code, frozen protocol records, deterministic design-of-experiments provenance,
+derived result tables required to reproduce the reported figures and numerical summaries,
+and the post-held-out measurement-noise stress-test materials are available in a public
+reproducibility archive at Zenodo (DOI: DOI_TO_BE_ASSIGNED) and mirrored at
+https://github.com/Alexandregiacomellileal/active-surface-potential-grounding.
+The 84-case held-out evaluation was completed before publication of the archive and was
+not retuned after its outcomes were disclosed. Full COMSOL-generated surface-field files
+may be archived as a separate dataset if journal/editorial requirements call for the
+complete model-output corpus.
