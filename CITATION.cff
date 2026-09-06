@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or derived data, please cite the associated manuscript and the archived software release."
+title: "Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package"
+type: software
+authors:
+  - family-names: "Leal"
+    given-names: "Alexandre Giacomelli"
+version: "1.0.0"
+date-released: 2026-09-06
+repository-code: "https://github.com/Alexandregiacomellileal/active-surface-potential-grounding"
+license: MIT
+keywords:
+  - grounding electrode
+  - surface potential
+  - active sensing
+  - optimal experimental design
+  - inverse problem
+  - finite element method
+  - A-optimal design
