@@ -1,0 +1,15 @@
+PAPER 1 - POST-HELD-OUT MEASUREMENT-NOISE STRESS REPORT
+=========================================================
+SECONDARY POST-HELD-OUT analysis. Held-out 84 were already consumed.
+No COMSOL regeneration and no method retuning.
+Positive noise levels: [0.1 0.25 0.5 1 2] % RMS; 30 MC reps/case/level.
+95% CIs: cluster bootstrap over 84 cases, B=2000.
+
+Noise 0.00% | Active joint 100.00% [100.00, 100.00] | Space 79.76% [71.43, 88.10]
+Noise 0.10% | Active joint 100.00% [100.00, 100.00] | Space 69.09% [63.41, 74.88]
+Noise 0.25% | Active joint 99.84% [99.56, 100.00] | Space 42.98% [38.69, 47.46]
+Noise 0.50% | Active joint 98.97% [98.17, 99.64] | Space 18.65% [16.19, 21.43]
+Noise 1.00% | Active joint 93.77% [91.51, 95.79] | Space 6.94% [5.44, 8.61]
+Noise 2.00% | Active joint 73.29% [68.53, 77.86] | Space 1.63% [1.15, 2.14]
+
+Do not reinterpret this as an independent held-out validation.
