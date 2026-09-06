@@ -1,5 +1,7 @@
 # Active Surface-Potential Measurement Design for Buried Grounding Electrodes
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22547701.svg)](https://doi.org/10.5281/zenodo.22547701)
+
 Reproducibility companion for the manuscript:
 
 **Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes**
@@ -10,7 +12,7 @@ Author: Alexandre Giacomelli Leal
 
 This public GitHub repository preserves the **core reproducibility layer** of the study: frozen scientific protocols, the deterministic DOE provenance, the gauge-aware FEM convergence code, the M1 and segmented-surrogate diagnostics, the frozen v5-M80 inverse/acquisition core, final paper-level summaries, and portable Python checks.
 
-A larger **Zenodo-ready v1.0.0 archive** is maintained separately for deposition. It additionally contains the larger historical final/seed runner files, casewise N=15 tables, the full 956-point illustrative case-12 field, and publication-figure assets.
+The GitHub archival release **v1.0.1** is preserved on Zenodo under DOI **10.5281/zenodo.22547701**.
 
 The scientific chronology is intentionally preserved:
 
@@ -43,7 +45,7 @@ Post-held-out additive potential-noise stress:
 - `data/seed_robustness/` — seven-layout seed-robustness summary and predeclared freeze decision.
 - `data/noise_stress/` — post-held-out noise summaries and paired comparison.
 - `scripts/` — portable DOE reconstruction, numerical-claim validation, and public-core figure reproduction.
-- `docs/` — scientific chronology, Data Availability template, and GitHub/Zenodo publication checklist.
+- `docs/` — scientific chronology, Data Availability material, and GitHub/Zenodo publication checklist.
 
 ## Quick verification
 
@@ -58,7 +60,7 @@ python scripts/reproduce_all_figures.py
 
 `validate_results.py` checks the main paper claims directly from the archived public result tables. `reconstruct_master100_doe.py` authenticates the deterministic 100-case design against the archived 84-case checkpoint.
 
-The public-core figure script regenerates the figures supported by the compact GitHub tables. It automatically skips figures that require the larger casewise/full-field files; those files are included in the complete Zenodo-ready archive.
+The public-core figure script regenerates the figures supported by the compact GitHub tables. It automatically skips figures that require larger casewise/full-field files.
 
 ## MATLAB/COMSOL environment
 
@@ -92,7 +94,7 @@ Thus the reported percentage is `100*gauge_rel`. This exact definition comes fro
 
 ## Data scope
 
-GitHub intentionally contains the compact, reviewable core and derived tables needed to verify the principal claims. The complete Zenodo-ready archive contains additional historical runners and larger derived/full-field files. The full corpus of all 84 COMSOL-generated 956-point fields is not required for the portable summary checks and may be deposited separately if requested by the journal/editor.
+GitHub and the associated Zenodo archival release contain the compact, reviewable reproducibility core and derived tables needed to verify the principal claims. The full corpus of all 84 COMSOL-generated 956-point fields is not included in this compact public archive and may be deposited separately if requested by the journal/editor.
 
 ## License
 
@@ -100,4 +102,6 @@ Code and bundled derived data are released under the MIT License unless a file s
 
 ## Citation
 
-See `CITATION.cff`. After the Zenodo release is published, the issued DOI will be added to `CITATION.cff`, this README, and the manuscript Data Availability statement.
+See `CITATION.cff` or cite the archived software release directly:
+
+**Leal, Alexandre Giacomelli. Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package, v1.0.1. Zenodo. https://doi.org/10.5281/zenodo.22547701**
