@@ -1,0 +1,61 @@
+{
+  "protocol_version": "postheldout-noise-v1.0",
+  "status": "FROZEN BEFORE MEASUREMENT-NOISE STRESS RESULTS",
+  "defined_date": "2026-09-04",
+  "scope": "Secondary post-held-out numerical measurement-noise stress test",
+  "independent_validation": false,
+  "heldout84_status": "CONSUMED by prior one-shot final validation",
+  "fem_regeneration_required": false,
+  "fem_source": "Existing 84 frozen v1.2 FEM surface-potential fields",
+  "frozen_method": {
+    "surrogate": "v5 equipotential segmented electrode",
+    "M_segments": 80,
+    "rc_m": 0.01,
+    "initial_seed_xy_m": [[12,2],[4,12],[-8,10],[-12,-2],[-4,-12],[8,-10]],
+    "checkpoints": [6,8,10,15],
+    "primary_budget": 15,
+    "active_policy": "Voronoi-consistent A-optimal trace in endpoint-x, endpoint-y, depth coordinates",
+    "baseline": "Deterministic geometric maximin space filling",
+    "same_inverse_estimator": true,
+    "sigma_design_fraction_fullfield_RMS": 0.01,
+    "sigma_design_is_not_measurement_noise": true
+  },
+  "noise_model": {
+    "type": "additive independent zero-mean Gaussian potential noise",
+    "equation": "V_meas = V_FEM + epsilon; epsilon_i ~ N(0, sigma_V^2)",
+    "sigma_definition": "sigma_V = noise_fraction * RMS(V_FEM clean full field) separately for each case",
+    "noise_levels_pct_RMS": [0.1,0.25,0.5,1.0,2.0],
+    "monte_carlo_repetitions_per_case_level": 30,
+    "global_rng_seed": 20260904,
+    "common_random_numbers": "For a given case/noise level/repetition, the same latent 956-point Gaussian realization is used for Active and Space. Unselected values are never used by acquisition or fitting.",
+    "homoscedastic": true
+  },
+  "success_criterion": {
+    "endpoint_m_max": 0.25,
+    "depth_m_max": 0.05,
+    "orientation_deg_max": 0.1,
+    "interpretation": "Study-specific frozen numerical tolerances, not universal field requirements"
+  },
+  "reporting": {
+    "primary": "Joint success fraction at N=15 versus measurement-noise level for Active and Space",
+    "geometry_metrics": ["endpoint error","depth error","orientation error"],
+    "summaries": ["median","P90","maximum"],
+    "paired_metric": "Active-minus-Space joint-success difference under common random numbers",
+    "uncertainty": "95% cluster bootstrap confidence intervals over the 84 cases; all Monte Carlo repetitions for a case stay within the resampled cluster",
+    "bootstrap_repetitions": 2000,
+    "bootstrap_rng_seed": 20260905,
+    "zero_noise_reference": "Use the already disclosed frozen final held-out outputs at N=15; do not reinterpret them as untouched."
+  },
+  "freeze_rules": [
+    "No method, surrogate, seed, inverse-estimator, success-threshold, measurement budget, noise level, Monte Carlo repetition count, or reporting metric may be changed after any noise-stress outcome is viewed.",
+    "Behavior-preserving code/runtime fixes are allowed only if documented and do not change the frozen numerical method.",
+    "The 84 cases remain consumed. This stress test must never be described as a new independent held-out validation.",
+    "Intermediate outcomes must not be used to stop early, add/remove noise levels, or select a favorable operating point."
+  ],
+  "preflight": {
+    "parity_case_ids": [1,50,100],
+    "purpose": "Verify that the copied frozen core reproduces prior zero-noise final outputs before any noisy run.",
+    "parity_numeric_tolerance": 1e-07,
+    "selection_indices_must_match_exactly": true
+  }
+}
