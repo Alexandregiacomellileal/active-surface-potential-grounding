@@ -1,0 +1,47 @@
+PAPER 1 - FINAL HELD-OUT 84 FREEZE | v5-M80 / N=15
+=========================================================
+STATUS: FROZEN BEFORE ANY HELD-OUT FEM GENERATION OR METHOD EVALUATION
+DATE: 2026-08-22
+
+HELD-OUT DEFINITION
+- 84 cases = exact complement of frozen Development-16 inside the original frozen 100-case LHS DOE.
+- The preflight script may read DOE metadata/parameters only to construct this complement.
+- No held-out FEM field or method outcome is inspected during preflight.
+
+FROZEN FEM
+- Converged FEM v1.2 E3_D800.
+- Dxy=800 m; Hsoil=400 m.
+- Global mesh: hmax=20 m, hmin=0.005 m, hgrad=1.40, hcurve=0.40, hnarrow=1.0.
+- Electrode mesh: hmax=0.15 m, hmin=0.0015 m, hgrad=1.25, hcurve=0.16, hnarrow=1.5.
+- 956 fixed surface candidates, z=-1e-4 m; Iinj=1 A; rc=0.01 m.
+
+FROZEN PROPOSED METHOD
+- v5 equipotential segmented surrogate, M=80.
+- Discrete Voronoi-domain weighted least squares + profiled additive b0.
+- Active acquisition: Voronoi-consistent A-optimal trace in endpoint-x, endpoint-y, and depth coordinates.
+- Historical BASE seed: (12,2), (4,12), (-8,10), (-12,-2), (-4,-12), (8,-10) m.
+- FINAL BUDGET: N=15.
+
+FROZEN BASELINE
+- Same v5-M80 estimator and same six-point seed.
+- Deterministic geometric maximin Space-filling.
+
+REPORTING CHECKPOINTS
+- N = 6, 8, 10, 15.
+
+PRIMARY JOINT SUCCESS
+- endpoint error <= 0.25 m
+- depth absolute error <= 0.05 m
+- orientation absolute error <= 0.10 deg
+- all three must hold simultaneously.
+
+FINAL REPORTING
+- Joint-success fraction for Active and Space at N=15.
+- Median / P90 / maximum endpoint, depth, orientation, and full-field RMSE at N=15.
+- Joint success at each checkpoint.
+- Paired Active-minus-Space differences at N=15.
+
+BLINDING / DISCIPLINE
+- Final evaluator prints progress only while cases run.
+- Aggregate method results are revealed only after all 84 cases complete.
+- After ANY held-out method outcome is viewed, no tuning, replacement, selection, or re-freezing using these 84 cases is permitted.
