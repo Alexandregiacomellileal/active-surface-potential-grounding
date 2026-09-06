@@ -8,7 +8,9 @@ Author: Alexandre Giacomelli Leal
 
 ## Scope
 
-This repository/package preserves the frozen numerical protocols, MATLAB implementations, deterministic DOE provenance, paper-level result tables, and a portable Python path for checking the main reported claims and regenerating the principal figures.
+This public GitHub repository preserves the **core reproducibility layer** of the study: frozen scientific protocols, the deterministic DOE provenance, the gauge-aware FEM convergence code, the M1 and segmented-surrogate diagnostics, the frozen v5-M80 inverse/acquisition core, final paper-level summaries, and portable Python checks.
+
+A larger **Zenodo-ready v1.0.0 archive** is maintained separately for deposition. It additionally contains the larger historical final/seed runner files, casewise N=15 tables, the full 956-point illustrative case-12 field, and publication-figure assets.
 
 The scientific chronology is intentionally preserved:
 
@@ -16,34 +18,32 @@ The scientific chronology is intentionally preserved:
 - The final measurement budget was frozen at **N = 15** after the predeclared seven-layout seed-robustness test.
 - The remaining 84 cases were evaluated once and are **consumed**.
 - The additive-noise Monte Carlo experiment was defined and frozen only **after** the held-out results had been disclosed; it is secondary and must not be described as a new independent held-out validation.
-- No scripts in this package should be used to retrospectively retune the frozen method and then relabel the result as the original held-out experiment.
+- No material in this repository may be used to retrospectively retune the frozen method and relabel the result as the original held-out experiment.
 
 ## Key archived results
 
-At the frozen final budget N=15:
+At the frozen final budget **N=15**:
 
-- Active: 84/84 joint success.
-- Deterministic space filling: 67/84 joint success.
+- Active: **84/84** joint success.
+- Deterministic space filling: **67/84** joint success.
 - N=10 also showed 84/84 Active success, but N=15 remains the predeclared final budget.
 
 Post-held-out additive potential-noise stress:
 
-- 0.5% RMS: Active 98.97%, Space 18.65%.
-- 1.0% RMS: Active 93.77%, Space 6.94%.
+- 0.5% RMS: Active **98.97%**, Space **18.65%**.
+- 1.0% RMS: Active **93.77%**, Space **6.94%**.
 
-## Repository layout
+## Public GitHub layout
 
-- `src/fem/` — FEM convergence and surrogate-development MATLAB scripts.
-- `src/active_sampling/` — frozen v5-M80 active/space and seed-robustness scripts.
-- `src/final_validation/` — one-shot final held-out evaluator.
-- `src/noise_stress/` — frozen post-held-out Monte Carlo noise-stress scripts.
-- `protocols/` — frozen final and noise-stress protocol records.
-- `data/doe/` — deterministic DOE reconstruction and archived 84-case checkpoint.
-- `data/heldout_final/` — result tables sufficient to reproduce clean held-out figures/tables.
-- `data/seed_robustness/` — seed robustness summaries and frozen decision.
-- `data/noise_stress/` — post-held-out noise summaries.
-- `data/example_case12/` — one full 956-point FEM field plus Active/Space selections used for the illustrative spatial figure.
-- `scripts/` — portable validation, DOE reconstruction, and figure reproduction.
+- `src/fem/` — gauge-aware FEM convergence audit, M1 ceiling diagnostic, and segmented-surrogate diagnostic.
+- `src/noise_stress/` — frozen v5-M80 inverse/acquisition core, zero-noise parity preflight, restart-safe noise runner, and summarizer.
+- `protocols/` — frozen final held-out and post-held-out noise-stress protocols.
+- `data/doe/` — deterministic DOE reconstruction, Development-16/Held-out-84 tables, and archived 84-case FEM-generation checkpoint.
+- `data/heldout_final/` — clean final summary-by-budget and paired N=15 results.
+- `data/seed_robustness/` — seven-layout seed-robustness summary and predeclared freeze decision.
+- `data/noise_stress/` — post-held-out noise summaries and paired comparison.
+- `scripts/` — portable DOE reconstruction, numerical-claim validation, and public-core figure reproduction.
+- `docs/` — scientific chronology, Data Availability template, and GitHub/Zenodo publication checklist.
 
 ## Quick verification
 
@@ -56,13 +56,28 @@ python scripts/validate_results.py
 python scripts/reproduce_all_figures.py
 ```
 
-The validation script checks the principal numerical claims directly from the archived result tables.
+`validate_results.py` checks the main paper claims directly from the archived public result tables. `reconstruct_master100_doe.py` authenticates the deterministic 100-case design against the archived 84-case checkpoint.
+
+The public-core figure script regenerates the figures supported by the compact GitHub tables. It automatically skips figures that require the larger casewise/full-field files; those files are included in the complete Zenodo-ready archive.
 
 ## MATLAB/COMSOL environment
 
 The frozen MATLAB studies were run with MATLAB R2025b. The FEM reference model used COMSOL Multiphysics 5.3 with LiveLink for MATLAB.
 
-The paper-level result tables and all principal plots can be reproduced **without COMSOL** using the included derived CSV files. Re-executing the FEM generation itself requires the original COMSOL model and licensed COMSOL environment.
+Paper-level numerical claims can be checked from the derived CSV tables **without COMSOL**. Re-executing the FEM generation itself requires the original COMSOL model and a licensed COMSOL environment.
+
+## Frozen v5-M80 acquisition core
+
+The file `src/noise_stress/paper1_v5M80_noise_task_v10.m` contains the frozen estimator/acquisition core copied from the final held-out evaluator. It includes:
+
+- M=80 equipotential segmented surrogate;
+- discrete Voronoi-domain weighting and profiled additive `b0`;
+- current local Jacobian with nuisance-offset column;
+- A-optimal trace in endpoint-x, endpoint-y, and depth coordinates;
+- deterministic geometric maximin baseline;
+- the frozen multi-start/checkpoint nonlinear inverse logic.
+
+The 1% clean-field-RMS `sigma_design` used in the inverse objective is a fixed normalization/design scale. It is **not** a measurement-noise robustness claim.
 
 ## Gauge-aware convergence metric
 
@@ -73,11 +88,11 @@ shift = mean(va-vb);
 gauge_rel = norm((va-vb)-shift)/max(norm(vb),eps);
 ```
 
-Thus the reported percentage is `100*gauge_rel`. This exact definition was recovered from the archived frozen script, not reconstructed retrospectively.
+Thus the reported percentage is `100*gauge_rel`. This exact definition comes from the archived frozen script rather than a retrospective reconstruction.
 
 ## Data scope
 
-This GitHub-ready package contains derived data needed to reproduce the paper's reported tables and principal figures, plus a complete 956-point field for the illustrative case 12. It does **not** contain all 84 full COMSOL surface-field CSVs. Those full fields are best archived as a separate Zenodo dataset if desired because they are generated model outputs rather than source code.
+GitHub intentionally contains the compact, reviewable core and derived tables needed to verify the principal claims. The complete Zenodo-ready archive contains additional historical runners and larger derived/full-field files. The full corpus of all 84 COMSOL-generated 956-point fields is not required for the portable summary checks and may be deposited separately if requested by the journal/editor.
 
 ## License
 
@@ -85,4 +100,4 @@ Code and bundled derived data are released under the MIT License unless a file s
 
 ## Citation
 
-See `CITATION.cff`. After Zenodo deposition, add the issued DOI to both `CITATION.cff` and the manuscript Data Availability statement.
+See `CITATION.cff`. After the Zenodo release is published, the issued DOI will be added to `CITATION.cff`, this README, and the manuscript Data Availability statement.
