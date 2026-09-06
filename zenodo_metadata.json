@@ -1,0 +1,27 @@
+{
+  "title": "Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package",
+  "upload_type": "software",
+  "description": "Frozen MATLAB implementations, deterministic DOE provenance, final held-out result tables, post-held-out measurement-noise stress-test summaries, and portable scripts supporting the manuscript 'Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes'.",
+  "creators": [
+    {"name": "Leal, Alexandre Giacomelli"}
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "grounding electrode",
+    "surface potential",
+    "active sensing",
+    "optimal experimental design",
+    "inverse problem",
+    "finite element method",
+    "A-optimal design"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Alexandregiacomellileal/active-surface-potential-grounding",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "version": "1.0.0"
+}
