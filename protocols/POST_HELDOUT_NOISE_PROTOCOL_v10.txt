@@ -1,0 +1,75 @@
+PAPER 1 — POST-HELD-OUT MEASUREMENT-NOISE STRESS TEST v1.0
+================================================================
+STATUS: FROZEN BEFORE ANY MEASUREMENT-NOISE STRESS RESULT IS VIEWED
+DATE: 2026-09-04
+
+SCIENTIFIC STATUS
+-----------------
+This is a SECONDARY, POST-HELD-OUT numerical stress test.
+The 84-case held-out set was already consumed by the one-shot final validation.
+Nothing produced here may be described as a new independent held-out validation.
+No COMSOL/FEM regeneration is required.
+
+FROZEN METHOD
+-------------
+- Surrogate: v5 equipotential segmented electrode
+- M = 80 segments; rc = 0.01 m
+- Initial seed: (12,2), (4,12), (-8,10), (-12,-2), (-4,-12), (8,-10) m
+- Checkpoints: N = 6, 8, 10, 15
+- Primary budget: N = 15
+- Active: Voronoi-consistent A-optimal acquisition in endpoint-x/end-point-y/depth coordinates
+- Baseline: deterministic geometric maximin space filling
+- Same frozen inverse estimator for both methods
+- sigma_design = 1% of CLEAN full-field RMS remains frozen and is NOT the measurement-noise level
+
+MEASUREMENT-NOISE MODEL
+-----------------------
+V_meas_i = V_FEM_i + epsilon_i,
+epsilon_i ~ N(0, sigma_V^2), independently across candidate locations,
+sigma_V = alpha * RMS(V_FEM clean full field) for each FEM case.
+
+Frozen positive noise levels alpha (% RMS):
+    0.10%, 0.25%, 0.50%, 1.00%, 2.00%
+Monte Carlo repetitions: 30 per case per positive noise level.
+Global RNG seed: 20260904.
+
+For each case/noise/repetition, one latent 956-point Gaussian realization is
+created and shared by Active and Space (common random numbers). Only values at
+selected locations are exposed to the inverse estimator/acquisition process.
+This preserves a paired comparison while allowing Active and Space to select
+different locations.
+
+ZERO-NOISE REFERENCE
+--------------------
+The already disclosed frozen final N=15 results are the 0% reference.
+They are not rerun as 30 identical Monte Carlo repetitions.
+
+FROZEN JOINT CRITERION
+----------------------
+endpoint error <= 0.25 m
+AND depth error <= 0.05 m
+AND orientation error <= 0.10 deg.
+These are study-specific frozen numerical tolerances, not universal field requirements.
+
+PRIMARY REPORTING
+-----------------
+- N=15 joint-success fraction vs measurement-noise level: Active and Space.
+- Median/P90/max endpoint, depth and orientation errors.
+- Paired Active-minus-Space joint-success difference using common random numbers.
+- 95% cluster-bootstrap confidence intervals by resampling the 84 CASES,
+  retaining all Monte Carlo repetitions inside each resampled case cluster.
+- Bootstrap repetitions: 2000; bootstrap RNG seed: 20260905.
+
+PREFLIGHT PARITY
+----------------
+Before any noisy execution, cases 1, 50 and 100 are rerun at exactly zero added
+noise in MATLAB and compared with the already frozen final outputs. Key metrics
+must agree to <=1e-7 and all selected candidate indices must match exactly.
+A PASS sentinel is required before the noise runner starts.
+
+NO-RETUNING RULE
+----------------
+After any noise-stress outcome is viewed, do NOT change method, surrogate, seed,
+estimator, thresholds, N=15 budget, noise levels, repetition count, or reporting
+metrics. Do NOT stop early because a favorable/unfavorable result appears.
+Behavior-preserving runtime/code fixes may be made only if documented.
