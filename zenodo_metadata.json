@@ -1,7 +1,7 @@
 {
   "title": "Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package",
   "upload_type": "software",
-  "description": "Frozen MATLAB implementations, deterministic DOE provenance, final held-out result tables, post-held-out measurement-noise stress-test summaries, and portable scripts supporting the manuscript 'Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes'.",
+  "description": "Version 1.1.0 extends the archived numerical reproducibility package with the physical proof-of-concept materials supporting the revised manuscript. It adds the three MTR-1522 field campaigns, the source measurement workbook, deterministic full-grid v5-M80 reconstruction materials, physical map-comparison metric reproduction, and the frozen post-field/post-audit N=15 Active-vs-Space sequential replay protocol, executable implementation, selection sequences, provenance hashes, and derived results. The locked physical replay was frozen and hash-audited before its own outcomes were computed; however, the complete field maps and earlier exploratory analyses were already available. It is therefore retrospective transfer evidence rather than independent prospective field validation. The clean 84-case numerical held-out experiment remains the primary independent numerical evaluation.",
   "creators": [
     {"name": "Leal, Alexandre Giacomelli"}
   ],
@@ -14,7 +14,11 @@
     "optimal experimental design",
     "inverse problem",
     "finite element method",
-    "A-optimal design"
+    "A-optimal design",
+    "physical proof of concept",
+    "grounding resistance",
+    "MTR-1522",
+    "retrospective replay"
   ],
   "related_identifiers": [
     {
@@ -23,5 +27,5 @@
       "scheme": "url"
     }
   ],
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
