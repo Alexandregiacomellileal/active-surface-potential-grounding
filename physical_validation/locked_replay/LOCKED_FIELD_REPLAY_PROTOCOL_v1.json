@@ -1,0 +1,266 @@
+{
+  "protocol_id": "LOCKED_FIELD_REPLAY_2026-09-13_v1",
+  "date": "2026-09-13",
+  "status": "POST-FIELD, POST-AUDIT, LOCKED RETROSPECTIVE SEQUENTIAL REPLAY",
+  "scientific_classification": {
+    "is_prospective_field_validation": false,
+    "is_independent_validation": false,
+    "allowed_interpretation": "post-audit sensitivity / transfer analysis only",
+    "guardrail": "Results may not be used to claim prospective experimental superiority of Active over Space."
+  },
+  "purpose": "Re-run the frozen Active-vs-Space acquisition logic sequentially on the three already-acquired physical maps, with a fully declared physical-scale adaptation and no post-run tuning.",
+  "data": {
+    "depths_m": [
+      0.2,
+      0.3,
+      0.4
+    ],
+    "grid": {
+      "n": 289,
+      "shape": [
+        17,
+        17
+      ],
+      "spacing_m": 0.25,
+      "x_range_m": [
+        -0.8,
+        3.2
+      ],
+      "y_range_m": [
+        -2.0,
+        2.0
+      ]
+    },
+    "R_ref_ohm": {
+      "0.20": 44.1,
+      "0.30": 41.6,
+      "0.40": 40.1
+    },
+    "response_definition": "Z_field = R_ref - R_MTR",
+    "preprocessing": "none: no smoothing, interpolation, outlier exclusion, or imputation",
+    "source_hashes": {
+      "workbook_sha256": "27eabc40f6ffc6f8d06095fb3ef67265a0c789bb584c6835a985966de5ee28d1",
+      "fullgrid_repro_script_sha256": "53752603578721b7e29ac1e6cff962679b9c466140de4f8a774bb43485f63cb9",
+      "frozen_active_core_matlab_sha256": "c64f123e9b7f84dcf6d4b3fa00b9aa563d5f2b410a83f11368b288daf783b6ac",
+      "physical_D020.csv_sha256": "82d072a55d3e24ae241f6f857d84a6b640881a1d24bf5c72d70f2d6e3117deaf",
+      "physical_D030.csv_sha256": "600d003025f844428efde0fd42affe2b70c112fa2acd564983b1e60f14f410d1",
+      "physical_D040.csv_sha256": "126e62e533ea9f8a9aeb108e76ca09d868c9a5ef41dd886c24514fcb012667ef"
+    }
+  },
+  "forward_model": {
+    "name": "v5 equipotential segmented electrode",
+    "M": 80,
+    "rho_ohm_m": 100.0,
+    "rod_radius_m": 0.006,
+    "probe_insertion_m": 0.03,
+    "segment_current_depth": "electrode-axis depth d",
+    "observation_vertical_separation": "d - hP",
+    "injected_current_normalization_A": 1.0,
+    "profiled_additive_offset": true
+  },
+  "inverse_bounds": {
+    "L_m": [
+      1.0,
+      4.0
+    ],
+    "d_m": [
+      0.05,
+      0.8
+    ],
+    "phi_deg": "circular [0,360)"
+  },
+  "common_seed": {
+    "rationale": "Historical numerical six-point seed is scaled isotropically by physical-side/numerical-side = 4/60 = 1/15 about the injection origin, then snapped to the nearest 0.25-m physical candidate; stable candidate order breaks ties.",
+    "numerical_seed_m": [
+      [
+        12,
+        2
+      ],
+      [
+        4,
+        12
+      ],
+      [
+        -8,
+        10
+      ],
+      [
+        -12,
+        -2
+      ],
+      [
+        -4,
+        -12
+      ],
+      [
+        8,
+        -10
+      ]
+    ],
+    "scale": 0.06666666666666667,
+    "continuous_scaled_seed_m": [
+      [
+        0.8,
+        0.13333333333333333
+      ],
+      [
+        0.26666666666666666,
+        0.8
+      ],
+      [
+        -0.5333333333333333,
+        0.6666666666666666
+      ],
+      [
+        -0.8,
+        -0.13333333333333333
+      ],
+      [
+        -0.26666666666666666,
+        -0.8
+      ],
+      [
+        0.5333333333333333,
+        -0.6666666666666666
+      ]
+    ],
+    "snapped_physical_seed_m": [
+      [
+        0.7,
+        0.25
+      ],
+      [
+        0.19999999999999996,
+        0.75
+      ],
+      [
+        -0.55,
+        0.75
+      ],
+      [
+        -0.8,
+        -0.25
+      ],
+      [
+        -0.30000000000000004,
+        -0.75
+      ],
+      [
+        0.44999999999999996,
+        -0.75
+      ]
+    ]
+  },
+  "optimizer": {
+    "method": "Nelder-Mead",
+    "bound_penalty": 100000000.0,
+    "xatol": 1e-08,
+    "fatol": 1e-10,
+    "seed_mode": {
+      "maxiter": 3000,
+      "maxfev": 6000,
+      "starts": "normalized mapping of the frozen 16 numerical seed starts to the physical L,d bounds"
+    },
+    "sequential_mode": {
+      "maxiter": 900,
+      "maxfev": 1800,
+      "starts": "previous estimate only"
+    },
+    "checkpoint_mode": {
+      "maxiter": 3000,
+      "maxfev": 6000,
+      "starts": "previous estimate plus six normalized frozen perturbations"
+    },
+    "normalized_mapping": {
+      "initial_Ld_positions": [
+        {
+          "numerical": [
+            19.0,
+            1.0
+          ],
+          "physical": [
+            2.5,
+            0.425
+          ],
+          "angles_deg": [
+            0,
+            45,
+            90,
+            135,
+            180,
+            225,
+            270,
+            315
+          ]
+        },
+        {
+          "numerical": [
+            10.0,
+            0.7
+          ],
+          "physical": [
+            1.2727272727272727,
+            0.2
+          ],
+          "angles_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        {
+          "numerical": [
+            29.0,
+            1.3
+          ],
+          "physical": [
+            3.8636363636363638,
+            0.65
+          ],
+          "angles_deg": [
+            45,
+            135,
+            225,
+            315
+          ]
+        }
+      ],
+      "checkpoint_perturbations": {
+        "phi_deg": 10.0,
+        "L_m": 0.13636363636363635,
+        "d_m": 0.075
+      }
+    },
+    "objective_scale": "sigma_design = 1% RMS of the six revealed seed measurements; held fixed for the case. No unselected field value is used to define it.",
+    "voronoi_weighting": "discrete Voronoi weights over all 289 candidate locations"
+  },
+  "acquisition": {
+    "Active": "same Voronoi-consistent A-optimal criterion as frozen numerical core; covariance transformed to endpoint-x, endpoint-y, depth; stable-order tie breaking",
+    "Space": "deterministic geometric maximin; stable-order tie breaking",
+    "candidate_revelation": "Only selected/revealed Z_field values are supplied to the estimator. Unselected measured values are not used for fitting or Active candidate selection.",
+    "checkpoints": [
+      6,
+      8,
+      10,
+      15
+    ],
+    "final_budget": 15
+  },
+  "evaluation": {
+    "truth_used_only_after_estimation": {
+      "L_m": 2.4,
+      "phi_deg": 0.0,
+      "depth_m": "campaign value"
+    },
+    "primary": "paired continuous N=15 errors: endpoint, depth, orientation, and length",
+    "secondary": "historical relative-depth <=10% indicator, reported only for continuity with the earlier audit",
+    "no_new_joint_threshold": true,
+    "full_map_RMSE": "evaluation-only after selection; never used for acquisition"
+  },
+  "stop_discipline": [
+    "Run all three depths and both methods before interpreting outcomes.",
+    "Do not change seed, scale, bounds, M, weights, optimizer starts/limits, A-optimal rule, Space rule, checkpoints, or budget after any replay outcome is viewed.",
+    "Any behavior-preserving runtime fix must be documented and the protocol version incremented; scientific choices may not be changed."
+  ]
+}
