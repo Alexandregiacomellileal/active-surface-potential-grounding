@@ -1,0 +1,37 @@
+{
+  "freeze_id": "ACTIVE_SURFACE_POTENTIAL_GROUNDING_2026-09-13_V17",
+  "frozen_date": "2026-09-13",
+  "manuscript_title": "Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes",
+  "target_journal": "Measurement",
+  "reference_pdf": "manuscript/manuscript_frozen_v17.pdf",
+  "reference_tex": "manuscript/manuscript_frozen_v17_tracked.tex",
+  "sha256": {
+    "manuscript/manuscript_frozen_v17.pdf": "e94df329f2a6e24ac8e91bb1a8c0cf46eb72fd838ec1f7e786bd9086624aaada",
+    "manuscript/manuscript_frozen_v17_tracked.tex": "6ae5ce4a4158f3059e11b79f64c660082e0ee750aec9ef434a96c5a9df303af0",
+    "source_data/comparacao_real_MTR1522_D020_D030_D040_FINAL.xlsx": "27eabc40f6ffc6f8d06095fb3ef67265a0c789bb584c6835a985966de5ee28d1",
+    "physical_replay/locked_field_replay_20260913.zip": "c43dc6dcdbabfe2a369e0fa85a2c9866499913ff8c5ee8d48bc3823e512f5443"
+  },
+  "github": {
+    "repository": "Alexandregiacomellileal/active-surface-potential-grounding",
+    "default_branch": "main",
+    "head_at_freeze": "118e165aa223f2831dd89ef1c62b5d7773fb778c",
+    "readme_blob_sha": "fd5a7a724b8125f56c2c9a724d2a904b0ae88311",
+    "zenodo_doi": "10.5281/zenodo.22547701",
+    "baseline_archive_version": "v1.0.1",
+    "updated_with_locked_replay_at_freeze": false
+  },
+  "physical_locked_replay": {
+    "protocol_id": "LOCKED_FIELD_REPLAY_2026-09-13_v1",
+    "status": "POST-FIELD, POST-AUDIT, LOCKED RETROSPECTIVE SEQUENTIAL REPLAY",
+    "is_prospective_field_validation": false,
+    "is_independent_validation": false,
+    "mean_relative_depth_error_pct": {"Active": 0.5852370501617876, "Space": 71.38879352630538},
+    "mean_endpoint_error_m": {"Active": 0.09307918048455636, "Space": 0.21290936009744452},
+    "mean_orientation_error_deg": {"Active": 1.8462342790165351, "Space": 4.7631188654570265},
+    "mean_length_error_m": {"Active": 0.028501485180057056, "Space": 0.06379791574514382},
+    "historical_depth_10pct_pass": {"Active": "3/3", "Space": "0/3"},
+    "protocol_sha256": "b4bac22fb22c6a5fa2e99fc21d40566e92be7e05386d87df2afdde57e9e5bdb5",
+    "script_sha256": "f0dc4cc65edaac9682d739342e76c73f18f4c12610602800a9d7639588ae300a"
+  },
+  "immutability_note": "Preserve this snapshot unchanged. Future manuscript/GitHub/Zenodo changes should create a new version and retain the post-field/post-audit wording for the locked replay."
+}
