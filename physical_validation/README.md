@@ -1,28 +1,59 @@
 # Physical validation release candidate
 
-This directory stages the physical proof-of-concept materials for the revised manuscript **Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes**.
+This directory stages the physical proof-of-concept material supporting the revised manuscript **Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes**.
 
-## Scientific scope
+## Scientific status
 
-The physical material has two distinct roles:
+The material under this directory is intentionally separated into two components:
 
-1. **Full-grid field maps and full-grid inversion** — external observability/model-transfer evidence using the complete 17x17 measured maps at nominal depths 0.20, 0.30, and 0.40 m.
-2. **Locked N=15 replay** — a post-field, post-audit retrospective sequential replay of the frozen Active-vs-Space acquisition logic. Its protocol, data, and archived outcomes are hash-audited. It is **not** prospective or independent field validation.
+1. `fullgrid/` — deterministic post-audit physical full-grid reconstruction and sensitivity checks.
+2. `locked_replay/` — the post-field/post-audit locked retrospective sequential Active-vs-Space replay frozen on 2026-09-13.
 
-The complete field maps and earlier exploratory analyses were already known before the locked replay protocol was created. The replay was then frozen and hashed before its own outcomes were computed. This distinction is preserved throughout the release materials.
+The full-grid reconstruction is a physical proof of concept / model-transfer check. The sparse locked replay is **retrospective transfer evidence, not independent prospective field validation**. The complete field maps and exploratory analyses existed before the replay protocol was frozen.
 
-## Contents
+The clean 84-case numerical held-out experiment remains the primary independent numerical evaluation in the study.
 
-- `fullgrid/` — deterministic v5-M80 full-grid inversion protocol and reproducibility documentation.
-- `locked_replay/` — frozen sequential replay protocol, preflight record, SHA-256 provenance, checkpoint results, N=15 paired results, summary, and interpretation guardrail.
-- `reproduce_physical_map_metrics.py` — reproduces the physical map comparison metrics.
-- `MAP_METRICS_NOTE.md` — documents the reference-normalized squared-error score used for the archived R²-like comparison.
-- `PROVENANCE.md` — links this public candidate to the frozen 2026-09-13 archive and source workbook.
+## Source data
 
-The source workbook `comparacao_real_MTR1522_D020_D030_D040_FINAL.xlsx` remains at the repository root; its SHA-256 is recorded in the frozen provenance materials.
+The original measured workbook is preserved at repository root:
 
-Some byte-identical frozen replay inputs/scripts and large reproducibility artifacts are intended to accompany the archival Zenodo release; the GitHub branch keeps the reviewable protocol and principal result tables visible in text form.
+`comparacao_real_MTR1522_D020_D030_D040_FINAL.xlsx`
 
-## Release status
+The three physical campaigns contain 289 retained positions each (867 retained readings total) for burial depths 0.20, 0.30, and 0.40 m.
 
-This branch is a **candidate** for the next GitHub/Zenodo archival version. The existing DOI 10.5281/zenodo.22547701 corresponds to the earlier v1.0.1 numerical baseline and must not be described as already containing this physical package. A new Zenodo version should be created after this branch is finalized.
+`reproduce_physical_map_metrics.py` reads that source workbook directly and reproduces the reported map-comparison metrics. `MAP_METRICS_NOTE.md` documents the reference-normalized `R2_ref` convention used in the manuscript.
+
+## Locked replay provenance
+
+The reviewable GitHub material includes the protocol, preflight/hash records, all-checkpoint results, N=15 results, paired comparison, summary, and the exact selected-point sequence:
+
+- `LOCKED_FIELD_REPLAY_PROTOCOL_v1.json`
+- `PREFLIGHT_PASS.json`
+- `PROTOCOL_SHA256.txt`
+- `LOCK_MANIFEST_SHA256.txt`
+- `RESULTS_SHA256.txt`
+- `RESULT_NOTE.md`
+- `locked_replay_results_all_checkpoints.csv`
+- `locked_replay_results_N15.csv`
+- `locked_replay_paired_N15.csv`
+- `locked_replay_selection_sequences.csv`
+- `locked_replay_summary.json`
+
+The byte-identical executable replay archive, including the frozen replay script and exact exported physical CSV inputs, is preserved in the frozen v17 source package and is intended to accompany the new Zenodo archival version. This distinction is deliberate so the public GitHub history remains reviewable while the full immutable binary/archive payload is versioned on Zenodo.
+
+## Verified manuscript values
+
+Full-grid reconstruction:
+
+- reconstructed depths: 0.189860, 0.286498, 0.380795 m;
+- mean relative depth error: 4.790688%;
+- maximum endpoint error: 0.027401 m.
+
+Locked N=15 replay:
+
+- Active mean relative depth error: 0.585237%;
+- Space mean relative depth error: 71.388794%;
+- Active mean endpoint error: 0.093079 m;
+- Space mean endpoint error: 0.212909 m.
+
+See `PROVENANCE.md`, `FREEZE_RECORD_2026-09-13_v17.json`, and the SHA-256 manifests for audit details.
