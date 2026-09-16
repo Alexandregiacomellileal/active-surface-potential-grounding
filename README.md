@@ -42,9 +42,9 @@ The candidate branch contains:
 - frozen v17 provenance records;
 - deterministic full-grid v5-M80 protocol, archived reconstruction results, sensitivity result, and a workbook-based reproducer;
 - physical map-comparison metric reproduction, including the reference-normalized `R2_ref` convention;
-- the locked retrospective sequential Active-vs-Space replay protocol, preflight/hash records, N=15 results, all-checkpoint results, paired comparison, and summary.
+- the locked retrospective sequential Active-vs-Space replay protocol, preflight/hash records, N=15 results, all-checkpoint results, paired comparison, summary, and exact selected-point sequence.
 
-The complete byte-identical replay archive, including the executable frozen replay script, exported field CSVs, and selected-point sequence file, is preserved in the frozen source package and is intended to accompany the **new Zenodo archival version**. The GitHub candidate keeps the reviewable protocol and principal result tables visible in text form.
+The complete byte-identical replay archive, including the executable frozen replay script and exact exported field CSV inputs, is preserved in the frozen source package and is intended to accompany the **new Zenodo archival version**. The GitHub candidate keeps the reviewable protocol and result tables visible in text form.
 
 The locked replay was frozen and hashed before its own outcomes were computed, but the complete physical maps and earlier exploratory analyses were already known. It is therefore reported as **post-field/post-audit retrospective transfer evidence**, not prospective or independent field validation.
 
