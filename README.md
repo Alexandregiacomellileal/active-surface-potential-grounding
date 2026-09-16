@@ -2,6 +2,10 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22797592.svg)](https://doi.org/10.5281/zenodo.22797592)
 
+<p align="center">
+  <img src="Active_idea.png" alt="Graphical abstract: physics-informed active surface-potential sensing for buried grounding-electrode reconstruction" width="100%">
+</p>
+
 Reproducibility companion for the manuscript:
 
 **Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes**
