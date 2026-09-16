@@ -12,7 +12,7 @@ Author: Alexandre Giacomelli Leal
 
 This repository preserves the numerical reproducibility core and stages the physical proof-of-concept materials supporting the revised manuscript. The numerical held-out and post-held-out noise materials remain unchanged from the archived baseline release v1.0.1. The branch `physical-validation-release-candidate` adds the physical provenance, full-grid reconstruction materials, map-metric reproduction, and the locked retrospective N=15 replay protocol and principal result tables.
 
-The existing Zenodo DOI **10.5281/zenodo.22547701** corresponds to the earlier v1.0.1 baseline. A new Zenodo version/DOI should be created only after this candidate branch is finalized and released.
+The existing Zenodo DOI **10.5281/zenodo.22547701** corresponds to the earlier v1.0.1 baseline. The version-specific DOI **10.5281/zenodo.22797592** has been reserved for the v1.1.0 physical-validation release and becomes registered/active when the Zenodo draft is published.
 
 ## Numerical chronology
 
@@ -44,7 +44,7 @@ The candidate branch contains:
 - physical map-comparison metric reproduction, including the reference-normalized `R2_ref` convention;
 - the locked retrospective sequential Active-vs-Space replay protocol, preflight/hash records, N=15 results, all-checkpoint results, paired comparison, summary, and exact selected-point sequence.
 
-The complete byte-identical replay archive, including the executable frozen replay script and exact exported field CSV inputs, is preserved in the frozen source package and is intended to accompany the **new Zenodo archival version**. The GitHub candidate keeps the reviewable protocol and result tables visible in text form.
+The complete byte-identical replay archive, including the executable frozen replay script and exact exported field CSV inputs, is preserved in the frozen source package and is intended to accompany the **v1.1.0 Zenodo archival version**. The GitHub candidate keeps the reviewable protocol and result tables visible in text form.
 
 The locked replay was frozen and hashed before its own outcomes were computed, but the complete physical maps and earlier exploratory analyses were already known. It is therefore reported as **post-field/post-audit retrospective transfer evidence**, not prospective or independent field validation.
 
@@ -98,6 +98,8 @@ Code and bundled derived data are released under the MIT License unless a file s
 
 ## Citation
 
-Until the new physical-validation release is archived, the existing DOI refers to the v1.0.1 numerical baseline:
+For the candidate v1.1.0 physical-validation release, the reserved version-specific Zenodo DOI is:
 
-**Leal, Alexandre Giacomelli. Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package, v1.0.1. Zenodo. https://doi.org/10.5281/zenodo.22547701**
+**Leal, Alexandre Giacomelli. Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package, v1.1.0. Zenodo. https://doi.org/10.5281/zenodo.22797592**
+
+Until the Zenodo draft is published, the active archived release remains v1.0.1 under DOI **10.5281/zenodo.22547701**.
