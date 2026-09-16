@@ -5,10 +5,10 @@ type: software
 authors:
   - family-names: "Leal"
     given-names: "Alexandre Giacomelli"
-version: "1.0.1"
-date-released: 2026-09-06
-doi: "10.5281/zenodo.22547701"
-url: "https://doi.org/10.5281/zenodo.22547701"
+version: "1.1.0"
+date-released: 2026-09-16
+doi: "10.5281/zenodo.22797592"
+url: "https://doi.org/10.5281/zenodo.22797592"
 repository-code: "https://github.com/Alexandregiacomellileal/active-surface-potential-grounding"
 license: MIT
 keywords:
@@ -19,3 +19,7 @@ keywords:
   - inverse problem
   - finite element method
   - A-optimal design
+  - physical proof of concept
+  - grounding resistance
+  - MTR-1522
+  - retrospective replay
