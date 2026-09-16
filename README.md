@@ -10,7 +10,7 @@ Author: Alexandre Giacomelli Leal
 
 ## Scope
 
-This repository preserves the numerical reproducibility core and the staged physical proof-of-concept package supporting the manuscript. The numerical held-out and post-held-out noise materials remain unchanged from the archived baseline release v1.0.1. The branch `physical-validation-release-candidate` adds the physical field datasets, full-grid reconstruction materials, and the locked retrospective N=15 replay prepared for the revised manuscript.
+This repository preserves the numerical reproducibility core and stages the physical proof-of-concept materials supporting the revised manuscript. The numerical held-out and post-held-out noise materials remain unchanged from the archived baseline release v1.0.1. The branch `physical-validation-release-candidate` adds the physical provenance, full-grid reconstruction materials, map-metric reproduction, and the locked retrospective N=15 replay protocol and principal result tables.
 
 The existing Zenodo DOI **10.5281/zenodo.22547701** corresponds to the earlier v1.0.1 baseline. A new Zenodo version/DOI should be created only after this candidate branch is finalized and released.
 
@@ -35,19 +35,20 @@ Post-held-out additive potential-noise stress:
 
 ## Physical proof of concept
 
-The staged physical package is under `physical_validation/`.
+The staged physical material is under `physical_validation/`. The source workbook `comparacao_real_MTR1522_D020_D030_D040_FINAL.xlsx`, containing the three 17x17 MTR-1522 field campaigns, remains at repository root.
 
-It contains:
+The candidate branch contains:
 
-- the three 17x17 MTR-1522 field maps for nominal depths 0.20, 0.30, and 0.40 m;
-- deterministic full-grid v5-M80 reconstruction materials;
-- map-comparison metric reproduction;
-- a locked retrospective sequential Active-vs-Space replay at N={6,8,10,15};
-- protocol, preflight, SHA-256 provenance, selected-point sequences, and result summaries.
+- frozen v17 provenance records;
+- deterministic full-grid v5-M80 protocol, archived reconstruction results, sensitivity result, and a workbook-based reproducer;
+- physical map-comparison metric reproduction, including the reference-normalized `R2_ref` convention;
+- the locked retrospective sequential Active-vs-Space replay protocol, preflight/hash records, N=15 results, all-checkpoint results, paired comparison, and summary.
+
+The complete byte-identical replay archive, including the executable frozen replay script, exported field CSVs, and selected-point sequence file, is preserved in the frozen source package and is intended to accompany the **new Zenodo archival version**. The GitHub candidate keeps the reviewable protocol and principal result tables visible in text form.
 
 The locked replay was frozen and hashed before its own outcomes were computed, but the complete physical maps and earlier exploratory analyses were already known. It is therefore reported as **post-field/post-audit retrospective transfer evidence**, not prospective or independent field validation.
 
-At N=15, the locked replay gives mean relative depth error 0.585% for Active versus 71.39% for Space, and mean endpoint error 0.0931 m versus 0.2129 m, respectively. These results are preserved with explicit interpretation guardrails in `physical_validation/locked_replay/RESULT_NOTE.md`.
+At N=15, the locked replay gives mean relative depth error 0.585% for Active versus 71.39% for Space, and mean endpoint error 0.0931 m versus 0.2129 m, respectively. The interpretation guardrail is preserved in `physical_validation/locked_replay/RESULT_NOTE.md`.
 
 ## Repository layout
 
@@ -57,9 +58,9 @@ At N=15, the locked replay gives mean relative depth error 0.585% for Active ver
 - `data/` — deterministic DOE, held-out, seed-robustness, and noise-stress tables.
 - `scripts/` — portable numerical verification and figure-reproduction scripts.
 - `docs/` — chronology and reproducibility documentation.
-- `physical_validation/fullgrid/` — physical full-grid inversion package.
-- `physical_validation/locked_replay/` — locked retrospective sparse replay package.
-- `physical_validation/reproduce_physical_map_metrics.py` — physical map metric reproducer.
+- `physical_validation/fullgrid/` — physical full-grid inversion protocol, results, and reproducer.
+- `physical_validation/locked_replay/` — locked retrospective sparse replay protocol, audit records, and principal results.
+- `physical_validation/reproduce_physical_map_metrics.py` — physical map metric reproducer using the source workbook.
 
 ## Quick numerical verification
 
@@ -70,7 +71,16 @@ python -m pip install -r requirements.txt
 python scripts/reconstruct_master100_doe.py
 python scripts/validate_results.py
 python scripts/reproduce_all_figures.py
+python physical_validation/reproduce_physical_map_metrics.py
 ```
+
+The full-grid physical inverse can be rerun with:
+
+```bash
+python physical_validation/fullgrid/src/reproduce_fullgrid_main.py
+```
+
+The full-grid calculation runs 72 deterministic starts for each of three campaigns and may take several minutes.
 
 ## MATLAB/COMSOL environment
 
@@ -80,7 +90,7 @@ Paper-level numerical claims can be checked from derived CSV tables without COMS
 
 ## Data scope
 
-The repository contains the compact numerical reproducibility core and the staged physical proof-of-concept package. The complete corpus of all 84 COMSOL-generated 956-point fields is not included in the compact public archive and may be deposited separately if requested by the journal/editor.
+The repository contains the compact numerical reproducibility core and the staged physical proof-of-concept material. The complete corpus of all 84 COMSOL-generated 956-point fields is not included in the compact public archive and may be deposited separately if requested by the journal/editor.
 
 ## License
 
