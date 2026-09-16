@@ -1,9 +1,9 @@
-# Candidate release notes — physical validation package
+# v1.1.0 physical-validation release candidate
 
-This candidate extends the v1.0.1 numerical reproducibility baseline with the scaled physical proof-of-concept materials used in the revised manuscript.
+Reserved Zenodo version-specific DOI: `10.5281/zenodo.22797592` (registered/activated when the Zenodo draft is published).
 
-Added material includes the frozen 2026-09-13 provenance record, full-grid physical reconstruction protocol/results, a workbook-based map-metric reproducer, and the locked post-field/post-audit Active-vs-Space replay protocol and principal result tables.
+This candidate extends the v1.0.1 numerical reproducibility baseline with the physical proof-of-concept layer supporting the revised manuscript. It adds the three MTR-1522 field campaigns and source workbook, deterministic full-grid v5-M80 reconstruction materials, physical map-comparison metric reproduction, and the frozen post-field/post-audit N=15 Active-vs-Space sequential replay protocol, provenance hashes, selection sequences, and derived results.
 
-The physical sparse replay is explicitly retrospective transfer evidence. It is not presented as prospective or independent field validation.
+The locked replay was frozen and hash-audited before its own outcomes were computed; however, the complete physical maps and earlier exploratory analyses were already available. It is therefore retrospective transfer evidence, not independent prospective field validation. The clean 84-case numerical held-out experiment remains the primary independent evaluation.
 
-The old Zenodo DOI `10.5281/zenodo.22547701` remains associated with the v1.0.1 baseline. A new archival version must be created before the manuscript Data Availability statement is finalized.
+The previous numerical baseline remains archived as v1.0.1 under DOI `10.5281/zenodo.22547701`.
