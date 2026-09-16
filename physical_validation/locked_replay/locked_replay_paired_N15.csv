@@ -1,0 +1,4 @@
+true_depth_m,endpoint_winner,depth_winner,orientation_winner,length_winner,Active_depth_rel_error_pct,Space_depth_rel_error_pct,Active_endpoint_error_m,Space_endpoint_error_m
+0.2,Active,Active,Active,Space,0.5683846249593533,75.0,0.0553649598420917,0.15763504811560064
+0.3,Active,Active,Active,Active,1.0897408734881024,83.33333333333334,0.10218255195466859,0.20165861424173379
+0.4,Active,Active,Active,Active,0.09758565203790703,55.83304724558278,0.12169002965690881,0.2794344179349991

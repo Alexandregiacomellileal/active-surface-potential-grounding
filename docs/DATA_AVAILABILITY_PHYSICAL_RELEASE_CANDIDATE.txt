@@ -1,0 +1,5 @@
+Data Availability
+
+The public reproducibility package supporting the numerical and physical analyses is available through the associated GitHub repository and the Zenodo archival record (version 1.1.0, DOI: 10.5281/zenodo.22797592). Version 1.1.0 extends the previous numerical package with the three MTR-1522 physical field campaigns, the source measurement workbook, deterministic full-grid physical reconstruction materials, physical map-comparison metric reproduction, and the locked post-field/post-audit N=15 Active-vs-Space replay protocol, executable implementation, selection sequences, provenance hashes, and derived results. The locked physical replay is retrospective transfer evidence and is not independent prospective field validation. The clean 84-case numerical held-out experiment remains the primary independent numerical evaluation. The complete corpus of all 84 COMSOL-generated 956-point fields is not included in the compact public archive and can be deposited separately if requested by the journal/editor.
+
+The previous v1.0.1 numerical baseline remains archived under DOI 10.5281/zenodo.22547701.

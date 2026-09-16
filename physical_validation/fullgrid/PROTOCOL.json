@@ -1,0 +1,17 @@
+{
+  "status": "post-audit reproducibility rerun; historical physical optimizer settings not claimed as recovered",
+  "forward_model": "frozen v5 equipotential segmented surrogate",
+  "M_segments": 80,
+  "rho_ohm_m": 100.0,
+  "rod_radius_m": 0.006,
+  "probe_insertion_m": 0.03,
+  "main_bounds": {"L_m": [1.0, 4.0], "d_axis_m": [0.05, 0.8], "phi_deg": "circular 0..360"},
+  "multistart": {"count": 72, "L_positions": ["25%", "50%", "75%"], "d_positions": ["25%", "50%", "75%"], "phi_deg": [0,45,90,135,180,225,270,315]},
+  "optimizer": "Nelder-Mead (SciPy)",
+  "bound_penalty": 100000000.0,
+  "xatol": 1e-08,
+  "fatol": 1e-10,
+  "maxiter": 3000,
+  "maxfev": 6000,
+  "sensitivity_bounds": {"L_m": [0.6, 4.5], "d_axis_m": [0.04, 1.0]}
+}
