@@ -1,0 +1,8 @@
+{
+  "mean_relative_depth_error_pct": 4.7906881422130185,
+  "mean_absolute_depth_error_cm": 1.4282546615380753,
+  "max_endpoint_error_m": 0.027401479881060085,
+  "mean_endpoint_error_m": 0.020552580747343684,
+  "max_phi_abs_error_deg": 0.3477391185579273,
+  "input_workbook_sha256": "27eabc40f6ffc6f8d06095fb3ef67265a0c789bb584c6835a985966de5ee28d1"
+}
