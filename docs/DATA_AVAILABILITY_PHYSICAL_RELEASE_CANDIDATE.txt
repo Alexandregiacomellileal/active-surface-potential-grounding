@@ -1,0 +1,5 @@
+Release-candidate wording only — do not paste into the manuscript until the new Zenodo version-specific DOI is confirmed.
+
+After archival release, the Data Availability statement may state that the public reproducibility package supporting the numerical and physical analyses is available in the associated GitHub repository and archived on Zenodo. The package includes the frozen numerical protocols, design-of-experiments provenance, inverse and acquisition code, post-held-out noise-analysis materials, the three MTR-1522 physical field datasets, the deterministic full-grid physical reconstruction package, and the locked retrospective replay protocol and derived results. The physical sparse replay is explicitly identified as post-field and post-audit and should not be interpreted as prospective field validation. The complete 84-case COMSOL field corpus is not included in the compact public archive and can be deposited separately if required by the journal.
+
+Replace this candidate note with the final statement only after the new GitHub release/tag and Zenodo version are published and the new DOI is known.
