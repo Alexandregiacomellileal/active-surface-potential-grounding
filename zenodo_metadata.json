@@ -1,7 +1,7 @@
 {
   "title": "Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package",
   "upload_type": "software",
-  "description": "Version 1.1.0 extends the archived numerical reproducibility package with the physical proof-of-concept materials supporting the revised manuscript. It adds the three MTR-1522 field campaigns, the source measurement workbook, deterministic full-grid v5-M80 reconstruction materials, physical map-comparison metric reproduction, and the frozen post-field/post-audit N=15 Active-vs-Space sequential replay protocol, executable implementation, selection sequences, provenance hashes, and derived results. The locked physical replay was frozen and hash-audited before its own outcomes were computed; however, the complete field maps and earlier exploratory analyses were already available. It is therefore retrospective transfer evidence rather than independent prospective field validation. The clean 84-case numerical held-out experiment remains the primary independent numerical evaluation.",
+  "description": "Version 1.2.0 extends the archived v1.1.0 package with the additional post-hoc acquisition benchmarks reported in the final manuscript. The update adds an estimator-matched D-optimal benchmark, a 200-layout Random acquisition ensemble with frozen seed range and convergence summaries, and a 956-location full-grid inversion used only as a dense-data reference. These analyses reuse the already-consumed 84-case FEM population and do not constitute a new independent validation set. The original A-optimal method was not retuned using the additional benchmark outcomes. Version 1.2.0 also retains the numerical held-out and noise-stress materials and the scaled MTR-1522 physical proof-of-concept package from v1.1.0, including physical full-grid reconstruction and retrospective N=15 Active-versus-Space replay materials.",
   "creators": [
     {"name": "Leal, Alexandre Giacomelli"}
   ],
@@ -15,6 +15,9 @@
     "inverse problem",
     "finite element method",
     "A-optimal design",
+    "D-optimal design",
+    "random acquisition",
+    "full-grid inversion",
     "physical proof of concept",
     "grounding resistance",
     "MTR-1522",
@@ -27,5 +30,5 @@
       "scheme": "url"
     }
   ],
-  "version": "1.1.0"
+  "version": "1.2.0"
 }
