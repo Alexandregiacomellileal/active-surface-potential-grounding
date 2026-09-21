@@ -1,0 +1,40 @@
+RANDOM BASELINE EXTENSION — FROZEN PROTOCOL BEFORE EXECUTION
+Date: 2026-09-21
+Purpose: assess convergence/stability of the Random baseline distribution.
+
+Population: same 84 already-consumed held-out FEM fields from the original study.
+Status: post-hoc benchmark only; not an independent validation set.
+
+Estimator and forward-model settings: unchanged from the frozen v5-M80 pipeline.
+Candidate domain: same 956 admissible surface locations.
+Initial seed: same six frozen locations used in the original study.
+Final measurement budget: N=15.
+Random policy: retain the six frozen seed locations, then sample 9 unrevealed locations uniformly without replacement.
+
+Total number of Random layouts: 200.
+Layout seeds: integers 20260921 through 20261120 inclusive.
+The first 50 seeds (20260921..20260970) are retained exactly as already executed; 150 additional seeds (20260971..20261120) are generated under the identical frozen procedure.
+
+No tuning or method changes are permitted after execution begins.
+
+Primary layout-level outcome:
+- joint success count/fraction across the 84 cases, using the frozen simultaneous criteria:
+  endpoint error <= 0.25 m,
+  depth error <= 0.05 m,
+  orientation error <= 0.10 deg.
+
+Secondary layout-level summaries:
+- median, P90, and maximum endpoint error;
+- median, P90, and maximum depth error;
+- median, P90, and maximum orientation error;
+- median, P90, and maximum full-field RMSE (% RMS).
+
+Distribution summaries over Random layouts:
+- median, P10, P90, minimum, and maximum joint success;
+- corresponding summaries for error statistics where relevant.
+
+Convergence analysis:
+Using the deterministic seed ordering above, evaluate prefix sizes n_layouts = 10, 20, 50, 100, 150, 200.
+
+Interpretation rule:
+The purpose is to assess whether the empirical Random distribution has stabilized with increasing numbers of layouts. No seed is selected or discarded based on outcome.
