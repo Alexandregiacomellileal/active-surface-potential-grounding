@@ -24,13 +24,12 @@ These analyses reuse the already-consumed 84 FEM fields. They are therefore **po
 
 The main scientific interpretation is that the strongest separation is between information-driven OED and uninformed/geometric sparse placement, rather than unique superiority of the A-optimal scalar criterion.
 
-## Files
+## Files in the compact GitHub repository
 
 - `POSTHOC_BENCHMARK_TABLE5.csv` — compact values used for the manuscript benchmark table.
-- `RANDOM200_DISTRIBUTION_SUMMARY.csv` — distribution-level summary across 200 Random layouts.
-- `RANDOM200_CONVERGENCE_BY_PREFIX.csv` — convergence summaries for prefixes of 10, 20, 50, 100, 150, and 200 layouts.
-- `RANDOM200_PER_CASE_SUCCESS.csv` — success frequency of each held-out case across the 200 Random layouts.
-- `protocols/RANDOM200_PROTOCOL_FROZEN_2026-09-21.txt` — protocol for extending the Random ensemble to 200 layouts.
-- `scripts/aggregate_random200.py` — aggregation script for the Random outputs.
+- `RANDOM200_DISTRIBUTION_SUMMARY.csv` — distribution-level Random-200 summary.
+- `RANDOM200_CONVERGENCE_BY_PREFIX.csv` — convergence summaries for 10, 20, 50, 100, 150, and 200 layouts.
+- `../../protocols/RANDOM200_PROTOCOL_FROZEN_2026-09-21.txt` — protocol for extending the Random ensemble to 200 layouts.
+- `../../scripts/summarize_random200.py` — portable aggregation script for the complete casewise Random file.
 
-The complete per-layout and per-case Random ensemble, together with the D-optimal and full-grid casewise tables, is intended for the next Zenodo archival version because the compact GitHub repository does not include all large derived files.
+The complete `RANDOM200_ALL_CASEWISE.csv`, `RANDOM200_LAYOUT_SUMMARY.csv`, `RANDOM200_PER_CASE_SUCCESS.csv`, and casewise D-optimal/full-grid tables are intended for the v1.2.0 Zenodo archive.
