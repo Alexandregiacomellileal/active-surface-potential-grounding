@@ -1,13 +1,13 @@
 {
   "title": "Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package",
   "upload_type": "software",
-  "description": "Version 1.2.0 extends the archived v1.1.0 package with the additional post-hoc acquisition benchmarks reported in the final manuscript. The update adds an estimator-matched D-optimal benchmark, a 200-layout Random acquisition ensemble with frozen seed range and convergence summaries, and a 956-location full-grid inversion used only as a dense-data reference. These analyses reuse the already-consumed 84-case FEM population and do not constitute a new independent validation set. The original A-optimal method was not retuned using the additional benchmark outcomes. Version 1.2.0 also retains the numerical held-out and noise-stress materials and the scaled MTR-1522 physical proof-of-concept package from v1.1.0, including physical full-grid reconstruction and retrospective N=15 Active-versus-Space replay materials.",
+  "description": "Version 1.2.1 completes the v1.2.0 reproducibility package by adding the full post-hoc benchmark archive, including the complete 200-layout Random casewise results and the D-optimal and numerical full-grid casewise results. No scientific results, methods, or manuscript conclusions were changed. The additional benchmark analyses reuse the already-consumed 84-case FEM population and are reported as post-hoc comparative benchmarks rather than as a new independent validation set.",
   "creators": [
     {"name": "Leal, Alexandre Giacomelli"}
   ],
   "license": "MIT",
   "access_right": "open",
-  "doi": "10.5281/zenodo.22884557",
+  "doi": "10.5281/zenodo.22894304",
   "keywords": [
     "grounding electrode",
     "surface potential",
@@ -31,5 +31,5 @@
       "scheme": "url"
     }
   ],
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
