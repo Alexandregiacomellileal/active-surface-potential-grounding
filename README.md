@@ -1,6 +1,6 @@
 # Active Surface-Potential Measurement Design for Buried Grounding Electrodes
 
-[![Archived DOI v1.2.0](https://zenodo.org/badge/DOI/10.5281/zenodo.22884557.svg)](https://doi.org/10.5281/zenodo.22884557)
+[![Archived DOI v1.2.1](https://zenodo.org/badge/DOI/10.5281/zenodo.22894304.svg)](https://doi.org/10.5281/zenodo.22894304)
 
 <p align="center">
   <img src="Active_idea.png" alt="Graphical abstract: physics-informed active surface-potential sensing for buried grounding-electrode reconstruction" width="100%">
@@ -14,9 +14,9 @@ Author: Alexandre Giacomelli Leal
 
 ## Version status
 
-The current archived release is **v1.2.0**, available on Zenodo under DOI **10.5281/zenodo.22884557**.
+The current archived release is **v1.2.1**, available on Zenodo under DOI **10.5281/zenodo.22894304**.
 
-Version v1.2.0 adds the additional post-hoc acquisition benchmarks reported in the final manuscript: D-optimal sequential design, a 200-layout Random ensemble, and a 956-location full-grid dense reference. These additions reuse the already-consumed 84-case FEM population and do not replace the original held-out Active-versus-Space evaluation.
+Version v1.2.1 completes the v1.2.0 reproducibility package by adding the full post-hoc benchmark archive, including the complete 200-layout Random casewise results and the D-optimal and numerical full-grid casewise results. No scientific results, methods, or manuscript conclusions were changed.
 
 ## Numerical chronology
 
@@ -47,7 +47,7 @@ Post-held-out additive potential-noise stress:
 
 Compact benchmark material is available under `data/posthoc_benchmarks/`.
 
-The GitHub repository includes the manuscript-level comparison table, Random-200 distribution summary, convergence-by-prefix table, the frozen Random-200 extension protocol, and a portable aggregation script. The complete per-layout/per-case Random ensemble and casewise D-optimal/full-grid results are archived in the v1.2.0 Zenodo release.
+The GitHub repository includes the manuscript-level comparison table, Random-200 distribution summary, convergence-by-prefix table, the frozen Random-200 extension protocol, and a portable aggregation script. The complete per-layout/per-case Random ensemble and casewise D-optimal/full-grid results are archived in the v1.2.1 Zenodo release.
 
 ## Physical proof of concept
 
@@ -111,7 +111,7 @@ Paper-level numerical claims can be checked from derived CSV tables without COMS
 
 ## Data scope
 
-The GitHub repository contains the compact numerical reproducibility core and physical proof-of-concept material. The large Random-200 casewise ensemble and the complete casewise D-optimal/full-grid benchmark tables are archived in Zenodo v1.2.0.
+The GitHub repository contains the compact numerical reproducibility core and physical proof-of-concept material. The large Random-200 casewise ensemble and the complete casewise D-optimal/full-grid benchmark tables are archived in Zenodo v1.2.1.
 
 The complete corpus of all 84 COMSOL-generated 956-point fields is not included in the compact public repository.
 
@@ -121,4 +121,4 @@ Code and bundled derived data are released under the MIT License unless a file s
 
 ## Citation
 
-**Leal, Alexandre Giacomelli. Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package, v1.2.0. Zenodo. https://doi.org/10.5281/zenodo.22884557**
+**Leal, Alexandre Giacomelli. Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package, v1.2.1. Zenodo. https://doi.org/10.5281/zenodo.22894304**
