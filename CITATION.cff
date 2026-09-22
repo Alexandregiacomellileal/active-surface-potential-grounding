@@ -5,10 +5,10 @@ type: software
 authors:
   - family-names: "Leal"
     given-names: "Alexandre Giacomelli"
-version: "1.2.0"
-date-released: 2026-09-21
-doi: "10.5281/zenodo.22884557"
-url: "https://doi.org/10.5281/zenodo.22884557"
+version: "1.2.1"
+date-released: 2026-09-22
+doi: "10.5281/zenodo.22894304"
+url: "https://doi.org/10.5281/zenodo.22894304"
 repository-code: "https://github.com/Alexandregiacomellileal/active-surface-potential-grounding"
 license: MIT
 keywords:
