@@ -1,6 +1,6 @@
 # Active Surface-Potential Measurement Design for Buried Grounding Electrodes
 
-[![Archived DOI v1.1.0](https://zenodo.org/badge/DOI/10.5281/zenodo.22797592.svg)](https://doi.org/10.5281/zenodo.22797592)
+[![Archived DOI v1.2.0](https://zenodo.org/badge/DOI/10.5281/zenodo.22884557.svg)](https://doi.org/10.5281/zenodo.22884557)
 
 <p align="center">
   <img src="Active_idea.png" alt="Graphical abstract: physics-informed active surface-potential sensing for buried grounding-electrode reconstruction" width="100%">
@@ -14,9 +14,9 @@ Author: Alexandre Giacomelli Leal
 
 ## Version status
 
-The GitHub working tree is now prepared for **v1.2.0**. The currently archived Zenodo version remains **v1.1.0** under DOI **10.5281/zenodo.22797592** until the new Zenodo version is published.
+The current archived release is **v1.2.0**, available on Zenodo under DOI **10.5281/zenodo.22884557**.
 
-Version v1.2.0 adds the additional post-hoc acquisition benchmarks now reported in the manuscript: D-optimal sequential design, a 200-layout Random ensemble, and a 956-location full-grid dense reference. These additions reuse the already-consumed 84-case FEM population and do not replace the original held-out Active-versus-Space evaluation.
+Version v1.2.0 adds the additional post-hoc acquisition benchmarks reported in the final manuscript: D-optimal sequential design, a 200-layout Random ensemble, and a 956-location full-grid dense reference. These additions reuse the already-consumed 84-case FEM population and do not replace the original held-out Active-versus-Space evaluation.
 
 ## Numerical chronology
 
@@ -47,7 +47,7 @@ Post-held-out additive potential-noise stress:
 
 Compact benchmark material is available under `data/posthoc_benchmarks/`.
 
-The GitHub repository includes the manuscript-level comparison table, Random-200 distribution summary, convergence-by-prefix table, the frozen Random-200 extension protocol, and a portable aggregation script. The complete per-layout/per-case Random ensemble and casewise D-optimal/full-grid results are reserved for the v1.2.0 Zenodo archive.
+The GitHub repository includes the manuscript-level comparison table, Random-200 distribution summary, convergence-by-prefix table, the frozen Random-200 extension protocol, and a portable aggregation script. The complete per-layout/per-case Random ensemble and casewise D-optimal/full-grid results are archived in the v1.2.0 Zenodo release.
 
 ## Physical proof of concept
 
@@ -91,7 +91,7 @@ python scripts/reproduce_all_figures.py
 python physical_validation/reproduce_physical_map_metrics.py
 ```
 
-For a complete Random-200 casewise CSV from the Zenodo archive:
+For the complete Random-200 casewise CSV from the Zenodo archive:
 
 ```bash
 python scripts/summarize_random200.py --input RANDOM200_ALL_CASEWISE.csv --outdir random200_summary
@@ -111,7 +111,7 @@ Paper-level numerical claims can be checked from derived CSV tables without COMS
 
 ## Data scope
 
-The GitHub repository contains the compact numerical reproducibility core and physical proof-of-concept material. The next Zenodo archival version will additionally contain the large Random-200 casewise ensemble and the complete casewise D-optimal/full-grid benchmark tables.
+The GitHub repository contains the compact numerical reproducibility core and physical proof-of-concept material. The large Random-200 casewise ensemble and the complete casewise D-optimal/full-grid benchmark tables are archived in Zenodo v1.2.0.
 
 The complete corpus of all 84 COMSOL-generated 956-point fields is not included in the compact public repository.
 
@@ -121,6 +121,4 @@ Code and bundled derived data are released under the MIT License unless a file s
 
 ## Citation
 
-The latest archived citation remains v1.1.0 until the v1.2.0 Zenodo record is published:
-
-**Leal, Alexandre Giacomelli. Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package, v1.1.0. Zenodo. https://doi.org/10.5281/zenodo.22797592**
+**Leal, Alexandre Giacomelli. Active Surface-Potential Measurement Design for Physics-Informed Reconstruction of Buried Grounding Electrodes: Reproducibility Package, v1.2.0. Zenodo. https://doi.org/10.5281/zenodo.22884557**
